@@ -1,0 +1,83 @@
+<html>
+<title>Tugas 1 Front End</title>
+<head></head>
+<style>
+    .container { 
+      height: 200px;
+      position: relative; 
+    }
+    
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    </style>
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+        const app = document.getElementById("app");
+
+        function Menu(){
+        return (
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">About</a>
+                </li>
+            </ul>)
+        }
+
+        function Alert(){
+            jumlah_like++
+        }
+
+        function Header({ title }) {
+            const names = ["M Baha'uddin Ali R", "Alex", "Crisye"];
+            const [totalLike, setLike] = React.useState(0);
+        
+            function handleClick() {
+                setLike(totalLike + 1);
+            }
+        
+            return (
+                <div>
+                    <h1>Tugas 1 Front End Next JS {title ? title : 'Default Title'}</h1>
+                    <ul>
+                        {names.map((name, index) => (
+                            <li key={index}>{name}</li>
+                        ))}
+                    </ul>
+                    <div class="container">
+                    <div class="center">
+                    <button onClick={handleClick}>Like = {totalLike}</button>
+                    </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function HomePage(){
+            return (
+                <div>
+                    {
+                    }
+                </div>
+            )
+        }
+
+        ReactDOM.render(<Header title="Ali"/>, app);
+    </script>
+</body>
+
+</html>
